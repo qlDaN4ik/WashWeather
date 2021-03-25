@@ -1,0 +1,36 @@
+buildscript {
+    ext{
+        kotlin_version = '1.4.31'
+        room_version = '2.3.0-beta03'
+        nav_version = '1.0.0'
+        kodein_version = '7.4.0'
+        lifecycle_version = '2.3.0'
+        retrofit_version = '2.9.0'
+        gradle_version = '4.1.2'
+        coroutines_version = '1.1.1'
+        arch_version = "2.1.0"
+    }
+    repositories {
+        google()
+        jcenter()
+    }
+    dependencies {
+        classpath "com.android.tools.build:gradle:$gradle_version"
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+        classpath "android.arch.navigation:navigation-safe-args-gradle-plugin:$nav_version"
+
+        // NOTE: Do not place your application dependencies here; they belong
+        // in the individual module build.gradle files
+    }
+}
+
+allprojects {
+    repositories {
+        google()
+        jcenter()
+    }
+}
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}

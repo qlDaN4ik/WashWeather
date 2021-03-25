@@ -1,0 +1,229 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <ProgressBar
+        android:id="@+id/progress_Bar"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/forecast_container"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:background="@color/colorPrimaryDark"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/weather_card">
+
+
+        <LinearLayout
+            android:id="@+id/forecast_message"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginTop="4dp"
+            android:layout_marginBottom="4dp"
+            android:background="@color/colorPrimary"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:padding="8dp"
+            app:layout_constraintBottom_toTopOf="@+id/rwForecasts"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:id="@+id/umbrella_icon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:src="@drawable/ic_umbrella"
+                android:visibility="gone"
+                tools:visibility="visible" />
+
+            <ImageView
+                android:id="@+id/car_wash_icon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:src="@drawable/ic_car_wash"
+                android:visibility="gone"
+                tools:visibility="visible" />
+
+            <ImageView
+                android:id="@+id/glasses_icon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:src="@drawable/ic_eyeglass"
+                android:visibility="gone"
+                tools:visibility="visible" />
+            <ImageView
+                android:id="@+id/car_light_icon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:src="@drawable/ic_car_light"
+                android:visibility="gone"
+                tools:visibility="visible" />
+            <ImageView
+                android:id="@+id/hat_icon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:src="@drawable/ic_hat"
+                android:visibility="gone"
+                tools:visibility="visible" />
+
+        </LinearLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rwForecasts"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:orientation="horizontal"
+            android:scrollbars="horizontal"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/forecast_message"
+            tools:listitem="@layout/rw_forecast_item_row" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/weather_card"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimary"
+        android:elevation="4dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/weatherIcon"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:contentDescription="weather icon"
+            android:src="@drawable/ic_weather_icons_05"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/imageCity"
+            android:layout_width="0dp"
+            android:layout_height="130dp"
+            android:scaleType="fitXY"
+            android:src="@drawable/city"
+            app:layout_constraintBottom_toBottomOf="@id/textTemp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/weatherIcon"
+            app:layout_constraintTop_toTopOf="@id/weatherIcon" />
+
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:src="@drawable/car"
+            app:layout_constraintBottom_toBottomOf="@id/imageCity"
+            app:layout_constraintEnd_toEndOf="@id/imageCity"
+            app:layout_constraintStart_toStartOf="@+id/imageCity" />
+
+        <TextView
+            android:id="@+id/textHumidity"
+            style="@style/smallWhiteText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
+            android:drawableTop="@drawable/ic_humidity"
+            android:gravity="center"
+            android:textColor="@color/whiteTextColor"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/textBarometer"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textTemp"
+            tools:text="70%" />
+
+        <TextView
+            android:id="@+id/textBarometer"
+            style="@style/smallWhiteText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:drawableTop="@drawable/ic_barometer"
+            android:textColor="@color/whiteTextColor"
+            app:layout_constraintBaseline_toBaselineOf="@+id/textHumidity"
+            app:layout_constraintEnd_toStartOf="@+id/textSpeedWind"
+            app:layout_constraintStart_toEndOf="@+id/textHumidity"
+            tools:text="1008 мПа" />
+
+        <TextView
+            android:id="@+id/textSpeedWind"
+            style="@style/smallWhiteText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:drawableTop="@drawable/ic_wind"
+            android:textColor="@color/whiteTextColor"
+            app:layout_constraintBaseline_toBaselineOf="@+id/textBarometer"
+            app:layout_constraintEnd_toStartOf="@+id/textWindDir"
+            app:layout_constraintStart_toEndOf="@+id/textBarometer"
+            tools:text="5 м/с" />
+
+        <TextView
+            android:id="@+id/textWindDir"
+            style="@style/smallWhiteText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:drawableTop="@drawable/ic_wind_deg"
+            android:textColor="@color/whiteTextColor"
+            app:layout_constraintBaseline_toBaselineOf="@+id/textBarometer"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/textSpeedWind"
+            tools:text="Северо-восток" />
+
+        <TextView
+            android:id="@+id/tw_city_name"
+            style="@style/smallWhiteText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/imageCity"
+            app:layout_constraintTop_toTopOf="@id/imageCity"
+            tools:text="Krasnoyarsk" />
+
+        <TextView
+            android:id="@+id/textTemp"
+            style="@style/bigWhiteText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="@+id/weatherIcon"
+            app:layout_constraintStart_toStartOf="@+id/weatherIcon"
+            app:layout_constraintTop_toBottomOf="@+id/weatherIcon"
+            tools:text="-10\u00B0C" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

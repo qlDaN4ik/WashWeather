@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <ListPreference
+        android:defaultValue="2"
+        android:dialogTitle="Укажите нужное количество дней без осадков в прогнозе погоды"
+        android:entries="@array/forecastLimit"
+        android:entryValues="@array/forecastLimit"
+        android:key="@string/pref_limit_key"
+        android:title="@string/clear_period" />
+
+    <ListPreference
+        android:defaultValue="-30"
+        android:dialogTitle="Укажите минимальную температуру в прогнозе погоды"
+        android:entries="@array/minTempView"
+        android:entryValues="@array/minTemp"
+        android:key="@string/pref_min_temp_key"
+        android:title="@string/min_temp" />
+</PreferenceScreen>
